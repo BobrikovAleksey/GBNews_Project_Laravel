@@ -1,0 +1,30 @@
+.tab-news .panel__news {
+    overflow: hidden;
+    max-height: 88px;
+    font-size: 18px;
+    padding: 6px 16px
+}
+
+.panel__tabs {
+    height: 64px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.medium-slide {
+    overflow: hidden;
+    max-height: 135px;
+}
+
+.small-slide {
+    overflow: hidden;
+    max-height: 81px;
+}
