@@ -9,7 +9,9 @@
                                 <img src="{{ asset('img/news-350x223-' . random_int(1, 5) . '.jpg') }}" alt="cover" />
 
                                 <div class="mn-title">
-                                    <a class="small-slide" href="">{{ $item->title }}</a>
+                                    <a class="small-slide" href="{{ route('News.Show', $item->slug) }}">
+                                        {{ $item->title }}
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -23,7 +25,11 @@
 
                     <ul>
                         @foreach ($moreNews as $news)
-                            <li><a class="hidden-text" href="">{{ $news->title }}</a></li>
+                            <li>
+                                <a class="hidden-text" href="{{ route('News.Show', $news->slug) }}">
+                                    {{ $news->title }}
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

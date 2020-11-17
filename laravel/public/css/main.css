@@ -5,12 +5,27 @@
   padding: 6px 16px;
 }
 
+.tab-news .sidebar-panel__news {
+  overflow: hidden;
+  max-height: 44px;
+  font-size: 16px;
+  padding: 6px 16px;
+}
+
 .panel__tabs {
   height: 64px;
   font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sidebar-panel__tabs {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0.4rem;
 }
 
 .hidden-text {

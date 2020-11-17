@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="tn-title panel__news">
-                            <a href="#">{{ $news->title }}</a>
+                            <a href="{{ route('News.Show', $news->slug) }}">{{ $news->title }}</a>
                         </div>
                     </div>
                 @endforeach

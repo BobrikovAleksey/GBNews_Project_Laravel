@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\News;
+use App\Models\{Category, News};
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\{Factory, View};
 

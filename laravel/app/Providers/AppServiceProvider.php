@@ -3,8 +3,13 @@
 namespace App\Providers;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
-use App\View\Components\{BottomBar, Brand, Breadcrumbs, Footer, FooterBottom, Menu, TopBar};
+use App\View\Components\{BottomBar, Brand, Breadcrumbs, Footer, FooterBottom, Menu, SidebarAdvertising, TopBar};
 use App\View\Components\Home\{LastNewsByCategory, News, PanelWithNews, TopNews};
+use App\View\Components\News\{CategoryLinks,
+    News as SingleNews,
+    PanelWithNews as SinglePanelWithNews,
+    RelatedNews,
+    TagsCloud};
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -36,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(Footer::class, 'main-footer');
         Blade::component(FooterBottom::class, 'main-footer-bottom');
         Blade::component(Menu::class, 'main-menu');
+        Blade::component(SidebarAdvertising::class, 'main-sidebar-advertising');
         Blade::component(TopBar::class, 'main-top-bar');
 
         // home
@@ -43,5 +49,12 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(News::class, 'home-news');
         Blade::component(PanelWithNews::class, 'home-panel-with-news');
         Blade::component(TopNews::class, 'home-top-news');
+
+        // news
+        Blade::component(CategoryLinks::class, 'news-category-links');
+        Blade::component(SingleNews::class, 'news-news');
+        Blade::component(SinglePanelWithNews::class, 'news-panel-with-news');
+        Blade::component(RelatedNews::class, 'news-related-news');
+        Blade::component(TagsCloud::class, 'news-tags-cloud');
     }
 }

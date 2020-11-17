@@ -34,7 +34,7 @@
 
 <x-main-menu></x-main-menu>
 
-<x-main-breadcrumbs></x-main-breadcrumbs>
+{{--<x-main-breadcrumbs></x-main-breadcrumbs>--}}
 
 <div class="container">
     @yield('content')

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Home;
+namespace App\View\Components\News;
 
 use App\Models\News;
 use Closure;
@@ -10,7 +10,7 @@ use Illuminate\Contracts\View\{Factory, View};
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class TopNews extends Component
+class RelatedNews extends Component
 {
     /** @var News[]|Collection */
     protected $news;
@@ -33,6 +33,6 @@ class TopNews extends Component
      */
     public function render()
     {
-        return view('components.home.top-news')->with('news', $this->news);
+        return view('components.news.related-news')->with('news', $this->news);
     }
 }

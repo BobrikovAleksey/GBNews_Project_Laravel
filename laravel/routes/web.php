@@ -14,10 +14,16 @@ use App\Http\Controllers\{HomeController, NewsController};
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('Home');
 
-Route::get('/news', [NewsController::class, 'index'])->name('news');
+Route::get('/single', [NewsController::class, 'show'])->name('news');
+
+Route::prefix('news')->name('News.')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('Index');
+    Route::get('/show/{slug}', [NewsController::class, 'show'])->name('Show');
+    Route::get('/{slug}', [NewsController::class, 'show'])->name('Category');
+});
 
 Auth::routes();

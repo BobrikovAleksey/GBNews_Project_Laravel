@@ -1,24 +1,24 @@
 <?php
 
-namespace App\View\Components\Home;
+namespace App\View\Components\News;
 
-use App\Models\News;
 use Closure;
+use Eloquent;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\{Factory, View};
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\{Collection, Model};
 use Illuminate\View\Component;
 
-class TopNews extends Component
+class News extends Component
 {
-    /** @var News[]|Collection */
+    /** @var Eloquent|Eloquent[]|Collection|Model|null */
     protected $news;
 
     /**
      * Create a new component instance.
      *
-     * @param News[]|Collection $news
+     * @param Eloquent|Eloquent[]|Collection|Model|null $news
      * @return void
      */
     public function __construct($news)
@@ -33,6 +33,6 @@ class TopNews extends Component
      */
     public function render()
     {
-        return view('components.home.top-news')->with('news', $this->news);
+        return view('components.news.news')->with('news', $this->news);
     }
 }

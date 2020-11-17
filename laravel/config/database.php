@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Str;
 
+/** @noinspection PhpComposerExtensionStubsInspection */
 return [
 
     /*

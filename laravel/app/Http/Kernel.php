@@ -2,7 +2,13 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\{Authenticate, EncryptCookies, PreventRequestsDuringMaintenance, RedirectIfAuthenticated, TrimStrings, TrustProxies, VerifyCsrfToken};
+use App\Http\Middleware\{Authenticate,
+    EncryptCookies,
+    PreventRequestsDuringMaintenance,
+    RedirectIfAuthenticated,
+    TrimStrings,
+    TrustProxies,
+    VerifyCsrfToken};
 use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\{AuthenticateWithBasicAuth, Authorize, EnsureEmailIsVerified, RequirePassword};
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;

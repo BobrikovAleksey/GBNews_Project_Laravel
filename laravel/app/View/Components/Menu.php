@@ -5,8 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\{Factory, View};
 use Illuminate\View\Component;
 use Route;
 
@@ -23,19 +22,19 @@ class Menu extends Component
     public function __construct()
     {
         $this->menu = [
-            ['link' => '/home', 'name' => 'Home', 'title' => 'Главная страница'],
-            ['link' => '#', 'name' => 'News', 'title' => 'Новости', 'submenu' => [
-                ['link' => '#', 'name' => 'Politics', 'title' => 'Политика'],
-                ['link' => '#', 'name' => 'World', 'title' => 'В мире'],
-                ['link' => '#', 'name' => 'Sport', 'title' => 'Спорт'],
+            ['prefix' => '/home', 'link' => '/home', 'name' => 'Home', 'title' => 'Главная страница'],
+            ['prefix' => '/news', 'link' => '/news', 'name' => 'News', 'title' => 'Новости', 'submenu' => [
+                ['link' => '/news', 'name' => 'Politics', 'title' => 'Политика'],
+                ['link' => '/news', 'name' => 'World', 'title' => 'В мире'],
+                ['link' => '/news', 'name' => 'Sport', 'title' => 'Спорт'],
             ]],
-            ['link' => '#', 'name' => 'About', 'title' => 'О нас'],
-            ['link' => '#', 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
+            ['prefix' => '#', 'link' => '#', 'name' => 'About', 'title' => 'О нас'],
+            ['prefix' => '#', 'link' => '#', 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
         ];
 
         $currentUrl = Route::current()->getCompiled()->getStaticPrefix();
         for ($i = 0; $i < count($this->menu); $i++) {
-            $this->menu[$i]['active'] = strripos($this->menu[$i]['link'], $currentUrl) === 0;
+            $this->menu[$i]['active'] = strripos($currentUrl, $this->menu[$i]['prefix']) === 0;
         }
 
         $this->links = [
