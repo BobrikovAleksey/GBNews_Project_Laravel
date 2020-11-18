@@ -37,11 +37,27 @@ class NewsController extends Controller
     }
 
     /**
+     * @param string|null $categorySlug
      * @return Application|Factory|View
      */
-    public function index()
+    public function index($categorySlug = null)
     {
-        return view('index');
+        if (isset($categorySlug)) {
+            $category = Category::firstWhere('slug', $categorySlug);
+        }
+
+        if (isset($category)) {
+            $news = $category->news()->orderByDesc('id')->get();
+        } else {
+            $news = News::orderByDesc('id')->get();
+        }
+
+        $data = $this->getDataForViews();
+        $data = array_merge($data, [
+            'category' => $category ?? null,
+            'news' => $news,
+        ]);
+        return view('news.index', $data);
     }
 
     /**

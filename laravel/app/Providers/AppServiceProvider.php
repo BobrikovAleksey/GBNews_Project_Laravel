@@ -7,6 +7,7 @@ use App\View\Components\{BottomBar, Brand, Breadcrumbs, Footer, FooterBottom, Me
 use App\View\Components\Home\{LastNewsByCategory, News, PanelWithNews, TopNews};
 use App\View\Components\News\{CategoryLinks,
     News as SingleNews,
+    NewsList,
     PanelWithNews as SinglePanelWithNews,
     RelatedNews,
     TagsCloud};
@@ -53,6 +54,7 @@ class AppServiceProvider extends ServiceProvider
         // news
         Blade::component(CategoryLinks::class, 'news-category-links');
         Blade::component(SingleNews::class, 'news-news');
+        Blade::component(NewsList::class, 'news-news-list');
         Blade::component(SinglePanelWithNews::class, 'news-panel-with-news');
         Blade::component(RelatedNews::class, 'news-related-news');
         Blade::component(TagsCloud::class, 'news-tags-cloud');

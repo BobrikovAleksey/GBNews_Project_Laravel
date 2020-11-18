@@ -17,11 +17,18 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('title', 224)->nullable(false)->comment('Заголовок');
             $table->string('slug', 256)->nullable(false)->comment('Транслитерация заголовка');
-            $table->string('cover', 256)->nullable(true)->comment('Ссылка на обложку');
-            $table->text('body')->comment('Содержание');
+            $table->string('cover', 256)->nullable()->comment('Ссылка на обложку');
+            $table->string('author', 128)->nullable()->comment('Автор');
+            $table->string('source', 128)->nullable()->comment('Источник');
+            $table->dateTime('date')->nullable(false)->comment('Дата и время публикации');
+            $table->integer('views')->default(1)->comment('Количество просмотров');
+            $table->text('body')->nullable()->comment('Содержание');
             $table->timestamps();
 
             $table->index('slug', 'news_slug_ndx');
+            $table->index('author', 'news_author_ndx');
+            $table->index('source', 'news_source_ndx');
+            $table->index(['date', 'id'], 'news_date_id_ndx');
         });
     }
 

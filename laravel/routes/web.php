@@ -18,12 +18,10 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'index'])->name('Home');
 
-Route::get('/single', [NewsController::class, 'show'])->name('news');
-
 Route::prefix('news')->name('News.')->group(function () {
     Route::get('/', [NewsController::class, 'index'])->name('Index');
     Route::get('/show/{slug}', [NewsController::class, 'show'])->name('Show');
-    Route::get('/{slug}', [NewsController::class, 'show'])->name('Category');
+    Route::get('/{slug}', [NewsController::class, 'index'])->name('Category');
 });
 
 Auth::routes();

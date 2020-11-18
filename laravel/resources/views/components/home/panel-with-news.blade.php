@@ -16,7 +16,7 @@
                 @foreach ($tab['news'] as $news)
                     <div class="tn-news">
                         <div class="tn-img">
-                            <img src="{{ asset('img/news-350x223-' . random_int(1, 5). '.jpg') }}" alt="cover" />
+                            <img src="{{ asset($news->cover) }}" alt="cover" />
                         </div>
 
                         <div class="tn-title panel__news">

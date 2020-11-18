@@ -3,11 +3,12 @@
 namespace App\View\Components;
 
 use Closure;
+use Eloquent;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\{Factory, View};
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
-use Route;
 
 class Menu extends Component
 {
@@ -17,24 +18,30 @@ class Menu extends Component
     /**
      * Create a new component instance.
      *
+     * @param Eloquent[]|Collection $categories
      * @return void
      */
-    public function __construct()
+    public function __construct($categories)
     {
+        $newsMenu = [['link' => route('News.Index'), 'name' => 'All News', 'title' => 'Все новости'], []];
+        foreach ($categories as $category) {
+            $newsMenu[] = [
+                'link' => route('News.Category', $category->slug),
+                'name' =>  $category->name,
+                'title' =>  $category->title,
+            ];
+        }
+
         $this->menu = [
-            ['prefix' => '/home', 'link' => '/home', 'name' => 'Home', 'title' => 'Главная страница'],
-            ['prefix' => '/news', 'link' => '/news', 'name' => 'News', 'title' => 'Новости', 'submenu' => [
-                ['link' => '/news', 'name' => 'Politics', 'title' => 'Политика'],
-                ['link' => '/news', 'name' => 'World', 'title' => 'В мире'],
-                ['link' => '/news', 'name' => 'Sport', 'title' => 'Спорт'],
-            ]],
-            ['prefix' => '#', 'link' => '#', 'name' => 'About', 'title' => 'О нас'],
-            ['prefix' => '#', 'link' => '#', 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
+            ['link' => route('Home'), 'name' => 'Home', 'title' => 'Главная страница'],
+            ['link' => route('News.Index'), 'name' => 'News', 'title' => 'Новости', 'submenu' => $newsMenu],
+            ['link' => '#', 'name' => 'About', 'title' => 'О нас'],
+            ['link' => '#', 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
         ];
 
-        $currentUrl = Route::current()->getCompiled()->getStaticPrefix();
+        $currentUrl = request()->getUri();
         for ($i = 0; $i < count($this->menu); $i++) {
-            $this->menu[$i]['active'] = strripos($currentUrl, $this->menu[$i]['prefix']) === 0;
+            $this->menu[$i]['active'] = strripos($currentUrl, $this->menu[$i]['link']) === 0;
         }
 
         $this->links = [

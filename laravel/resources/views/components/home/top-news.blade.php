@@ -24,7 +24,7 @@
                     @for ($i = 1; $i < 5; $i++)
                         <div class="col-md-6">
                             <div class="tn-img">
-                                <img src="{{ asset('img/news-350x223-' . random_int(1, 5) . '.jpg') }}" alt="cover"/>
+                                <img src="{{ asset($news[$i+2]->cover) }}" alt="cover"/>
 
                                 <div class="tn-title">
                                     <a class="small-slide" href="{{ route('News.Show', $news[$i+2]->slug) }}">

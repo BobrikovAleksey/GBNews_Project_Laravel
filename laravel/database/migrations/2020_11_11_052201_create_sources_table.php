@@ -16,7 +16,7 @@ class CreateSourcesTable extends Migration
         Schema::create('sources', function (Blueprint $table) {
             $table->id();
             $table->string('name', 128)->unique()->nullable(false);
-            $table->string('title', 128);
+            $table->string('title', 128)->nullable(false);
             $table->string('link', 256)->nullable(false);
             $table->timestamps();
         });

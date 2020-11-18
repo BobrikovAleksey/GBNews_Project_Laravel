@@ -1,14 +1,11 @@
+.card-news {
+  min-height: 98px;
+}
+
 .tab-news .panel__news {
   overflow: hidden;
   max-height: 88px;
   font-size: 18px;
-  padding: 6px 16px;
-}
-
-.tab-news .sidebar-panel__news {
-  overflow: hidden;
-  max-height: 44px;
-  font-size: 16px;
   padding: 6px 16px;
 }
 
@@ -20,18 +17,19 @@
   align-items: center;
 }
 
+.tab-news .sidebar-panel__news {
+  overflow: hidden;
+  max-height: 44px;
+  font-size: 16px;
+  padding: 6px 16px;
+}
+
 .sidebar-panel__tabs {
   font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 0.4rem;
-}
-
-.hidden-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .medium-slide {
@@ -42,5 +40,11 @@
 .small-slide {
   overflow: hidden;
   max-height: 81px;
+}
+
+.hidden-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 

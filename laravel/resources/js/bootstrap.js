@@ -1,3 +1,4 @@
+// noinspection DuplicatedCode,JSValidateTypes
 window._ = require('lodash');
 
 /**
@@ -21,6 +22,7 @@ try {
 
 window.axios = require('axios');
 
+// noinspection JSUnresolvedVariable
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**

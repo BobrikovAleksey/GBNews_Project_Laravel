@@ -66,7 +66,7 @@ class HomeController extends Controller
 //        return view('home');
         return view('index', [
             'title' => 'Главная страница',
-            'categories' => Category::select(['id', 'title'])->orderBy('id')->get(),
+            'categories' => Category::all(),
             'topNews' => News::query()->orderByDesc('id')->limit(8)->get(),
             'featuredTabs' => $this->getFeaturedTabs(),
             'mostTabs' => $this->getMostTabs(),

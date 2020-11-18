@@ -5,7 +5,7 @@
         @foreach($news as $item)
             <div class="col-md-4">
                 <div class="sn-img">
-                    <img src="{{ asset('img/news-350x223-' . random_int(1, 5) . '.jpg') }}" alt="cover"/>
+                    <img src="{{ asset($item->cover) }}" alt="cover"/>
 
                     <div class="sn-title">
                         <a class="small-slide" href="{{ route('News.Show', $item->slug) }}">{{ $item->title }}</a>

@@ -32,7 +32,7 @@
 
 <x-main-brand></x-main-brand>
 
-<x-main-menu></x-main-menu>
+<x-main-menu :categories="$categories"></x-main-menu>
 
 {{--<x-main-breadcrumbs></x-main-breadcrumbs>--}}
 

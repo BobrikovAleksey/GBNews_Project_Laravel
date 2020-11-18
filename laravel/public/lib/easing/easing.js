@@ -6,9 +6,12 @@
  * https://raw.github.com/gdsmith/jquery-easing/master/LICENSE
 */
 
+// noinspection ES6ConvertVarToLetConst
 (function (factory) {
-	if (typeof define === "function" && define.amd) {
-		define(['jquery'], function ($) {
+	// noinspection JSUnresolvedVariable
+    if (typeof define === "function" && define.amd) {
+		// noinspection JSUnresolvedFunction
+        define(['jquery'], function ($) {
 			return factory($);
 		});
 	} else if (typeof module === "object" && typeof module.exports === "object") {
@@ -23,7 +26,8 @@ if (typeof $.easing !== 'undefined') {
 	$.easing['jswing'] = $.easing['swing'];
 }
 
-var pow = Math.pow,
+// noinspection ES6ConvertVarToLetConst
+    var pow = Math.pow,
 	sqrt = Math.sqrt,
 	sin = Math.sin,
 	cos = Math.cos,
@@ -36,7 +40,8 @@ var pow = Math.pow,
 
 // x is the fraction of animation progress, in the range 0..1
 function bounceOut(x) {
-	var n1 = 7.5625,
+	// noinspection ES6ConvertVarToLetConst
+    var n1 = 7.5625,
 		d1 = 2.75;
 	if ( x < 1/d1 ) {
 		return n1*x*x;

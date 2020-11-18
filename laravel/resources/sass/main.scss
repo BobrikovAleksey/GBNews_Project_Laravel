@@ -1,14 +1,13 @@
+// news
+.card-news {
+    min-height: 98px;
+}
+
+// panel tabs
 .tab-news .panel__news {
     overflow: hidden;
     max-height: 88px;
     font-size: 18px;
-    padding: 6px 16px;
-}
-
-.tab-news .sidebar-panel__news {
-    overflow: hidden;
-    max-height: 44px;
-    font-size: 16px;
     padding: 6px 16px;
 }
 
@@ -20,6 +19,15 @@
     align-items: center;
 }
 
+// sidebar panel tabs
+
+.tab-news .sidebar-panel__news {
+    overflow: hidden;
+    max-height: 44px;
+    font-size: 16px;
+    padding: 6px 16px;
+}
+
 .sidebar-panel__tabs {
     font-size: 16px;
     display: flex;
@@ -28,11 +36,7 @@
     padding: 0.5rem 0.4rem;
 }
 
-.hidden-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+// slide
 
 .medium-slide {
     overflow: hidden;
@@ -42,4 +46,12 @@
 .small-slide {
     overflow: hidden;
     max-height: 81px;
+}
+
+// text
+
+.hidden-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
