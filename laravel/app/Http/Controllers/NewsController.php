@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\{Category, News};
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\{Factory, View};
+use Illuminate\Http\RedirectResponse;
 
 class NewsController extends Controller
 {
@@ -31,6 +32,7 @@ class NewsController extends Controller
     protected function getDataForViews()
     {
         return [
+            'title' => 'Новости',
             'categories' => Category::withCount('news')->get(),
             'featuredTabs' => $this->getFeaturedTabs(),
         ];
@@ -62,7 +64,7 @@ class NewsController extends Controller
 
     /**
      * @param string $slug
-     * @return Application|Factory|View
+     * @return Application|Factory|View|RedirectResponse
      */
     public function show(string $slug)
     {
@@ -71,6 +73,11 @@ class NewsController extends Controller
             'news' => News::where('slug', $slug)->orderByDesc('id')->first(),
             'relatedNews' => News::query()->orderByDesc('id')->limit(5)->get(),
         ]);
-        return view('news.single', $data);
+
+        if (isset($data['news'])) {
+            return view('news.single', $data);
+        }
+
+        return redirect()->route('News.Index');
     }
 }

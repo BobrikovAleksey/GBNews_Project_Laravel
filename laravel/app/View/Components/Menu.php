@@ -13,7 +13,6 @@ use Illuminate\View\Component;
 class Menu extends Component
 {
     protected array $menu;
-    protected array $links;
 
     /**
      * Create a new component instance.
@@ -36,21 +35,13 @@ class Menu extends Component
             ['link' => route('Home'), 'name' => 'Home', 'title' => 'Главная страница'],
             ['link' => route('News.Index'), 'name' => 'News', 'title' => 'Новости', 'submenu' => $newsMenu],
             ['link' => '#', 'name' => 'About', 'title' => 'О нас'],
-            ['link' => '#', 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
+            ['link' => route('Contact.Index'), 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
         ];
 
         $currentUrl = request()->getUri();
         for ($i = 0; $i < count($this->menu); $i++) {
             $this->menu[$i]['active'] = strripos($currentUrl, $this->menu[$i]['link']) === 0;
         }
-
-        $this->links = [
-            ['link' => 'https://twitter.com/', 'icon' => '<i class="fab fa-twitter"></i>'],
-            ['link' => 'https://www.facebook.com/', 'icon' => '<i class="fab fa-facebook-f"></i>'],
-            ['link' => 'https://www.linkedin.com/', 'icon' => '<i class="fab fa-linkedin-in"></i>'],
-            ['link' => 'https://www.instagram.com/', 'icon' => '<i class="fab fa-instagram"></i>'],
-            ['link' => 'https://www.youtube.com/', 'icon' => '<i class="fab fa-youtube"></i>'],
-        ];
     }
 
     /**
@@ -62,7 +53,6 @@ class Menu extends Component
     {
         return view('components.menu', [
             'menu' => $this->menu,
-            'links' => $this->links,
         ]);
     }
 }

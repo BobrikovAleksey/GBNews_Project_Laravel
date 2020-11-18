@@ -21,10 +21,10 @@ class TopBar extends Component
         $this->email = 'bobrikov.aleksey.1987@ya.ru';
         $this->phone = '+7 (921) 787-25-16';
         $this->menu = [
-            [ 'link' => '#', 'name' => 'About', 'title' => 'О нас' ],
-            [ 'link' => '#', 'name' => 'Privacy', 'title' => 'Конфиденциальность' ],
-            [ 'link' => '#', 'name' => 'Terms', 'title' => 'Термины' ],
-            [ 'link' => '#', 'name' => 'Contact', 'title' => 'Связаться с нами' ],
+            [ 'link' => '/', 'name' => 'About', 'title' => 'О нас' ],
+            [ 'link' => '/', 'name' => 'Privacy', 'title' => 'Конфиденциальность' ],
+            [ 'link' => '/', 'name' => 'Terms', 'title' => 'Термины' ],
+            [ 'link' => '/', 'name' => 'Contact', 'title' => 'Связаться с нами' ],
         ];
     }
 

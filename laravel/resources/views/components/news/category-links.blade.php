@@ -6,6 +6,7 @@
             @foreach ($categories as $category)
                 <li>
                     <a href="{{ route('News.Category', $category->slug) }}">{{ $category->title }}</a>
+
                     <span>({{ $category->news_count }})</span>
                 </li>
             @endforeach

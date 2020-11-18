@@ -3,14 +3,22 @@
 namespace App\Providers;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
-use App\View\Components\{BottomBar, Brand, Breadcrumbs, Footer, FooterBottom, Menu, SidebarAdvertising, TopBar};
+use App\View\Components\{BottomBar,
+                         Brand,
+                         Breadcrumbs,
+                         Footer,
+                         FooterBottom,
+                         Menu,
+                         SidebarAdvertising,
+                         TopBar};
+use App\View\Components\Contact\{Form, Info};
 use App\View\Components\Home\{LastNewsByCategory, News, PanelWithNews, TopNews};
 use App\View\Components\News\{CategoryLinks,
-    News as SingleNews,
-    NewsList,
-    PanelWithNews as SinglePanelWithNews,
-    RelatedNews,
-    TagsCloud};
+                              News as SingleNews,
+                              NewsList,
+                              PanelWithNews as SinglePanelWithNews,
+                              RelatedNews,
+                              TagsCloud};
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -44,6 +52,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(Menu::class, 'main-menu');
         Blade::component(SidebarAdvertising::class, 'main-sidebar-advertising');
         Blade::component(TopBar::class, 'main-top-bar');
+
+        // contact
+        Blade::component(Form::class, 'contact-form');
+        Blade::component(Info::class, 'contact-info');
 
         // home
         Blade::component(LastNewsByCategory::class, 'home-last-news-by-category');
