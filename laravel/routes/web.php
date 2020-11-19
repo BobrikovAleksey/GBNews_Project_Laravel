@@ -15,7 +15,9 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', function () {
+    return redirect()->route('Home');
+});
 
 Route::get('/home', [HomeController::class, 'index'])->name('Home');
 

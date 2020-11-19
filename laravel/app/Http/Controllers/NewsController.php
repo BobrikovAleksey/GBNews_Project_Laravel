@@ -49,9 +49,9 @@ class NewsController extends Controller
         }
 
         if (isset($category)) {
-            $news = $category->news()->orderByDesc('id')->get();
+            $news = $category->news()->orderByDesc('id')->paginate(10);
         } else {
-            $news = News::orderByDesc('id')->get();
+            $news = News::orderByDesc('id')->paginate(10);
         }
 
         $data = $this->getDataForViews();

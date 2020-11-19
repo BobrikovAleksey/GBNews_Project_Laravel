@@ -17,7 +17,7 @@
                 <div class="tn-title w-100 flex-column pt-0 pb-0">
                     <a href="{{ route('News.Show', $item->slug) }}"><b>{{ $item->title }}</b></a>
 
-                    <p class="mt-3 mb-0">{{ $item->author }}, {{ $item->date }}</p>
+                    <p class="mt-3 mb-0">{{ $item->author }}, {{ date('d.m.Y H:i', strtotime($item->date)) }}</p>
                 </div>
 
                 <div class="tn-img">
@@ -27,5 +27,8 @@
 
             <hr/>
         @endforeach
+
+        {{ $news->links() }}
+
     </div>
 </div>

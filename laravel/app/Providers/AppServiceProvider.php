@@ -12,6 +12,7 @@ use App\View\Components\{BottomBar,
                          SidebarAdvertising,
                          TopBar};
 use App\View\Components\Contact\{Form, Info};
+use Illuminate\Pagination\Paginator;
 use App\View\Components\Home\{LastNewsByCategory, News, PanelWithNews, TopNews};
 use App\View\Components\News\{CategoryLinks,
                               News as SingleNews,
@@ -43,6 +44,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
+
         // main layout
         Blade::component(BottomBar::class, 'main-bottom-bar');
         Blade::component(Brand::class, 'main-brand');
