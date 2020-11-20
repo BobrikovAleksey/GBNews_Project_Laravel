@@ -17,6 +17,7 @@ class ContactController extends Controller
         return view('contact', [
             'title' => 'Связаться с нами',
             'categories' => Category::all(),
+            'breadcrumbs' => [ 'name' => 'home-contact' ],
         ]);
     }
 

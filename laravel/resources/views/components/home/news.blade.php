@@ -9,7 +9,7 @@
                                 <img src="{{ asset($item->cover) }}" alt="cover" />
 
                                 <div class="mn-title">
-                                    <a class="small-slide" href="{{ route('News.Show', $item->slug) }}">
+                                    <a class="small-slide" href="{{ route('news.show', $item->slug) }}">
                                         {{ $item->title }}
                                     </a>
                                 </div>
@@ -26,7 +26,7 @@
                     <ul>
                         @foreach ($moreNews as $news)
                             <li>
-                                <a class="hidden-text" href="{{ route('News.Show', $news->slug) }}">
+                                <a class="hidden-text" href="{{ route('news.show', $news->slug) }}">
                                     {{ $news->title }}
                                 </a>
                             </li>

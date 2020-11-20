@@ -15,7 +15,7 @@
         @foreach ($news as $item)
             <div class="tn-news card-news flex justify-content-between mb-4">
                 <div class="tn-title w-100 flex-column pt-0 pb-0">
-                    <a href="{{ route('News.Show', $item->slug) }}"><b>{{ $item->title }}</b></a>
+                    <a href="{{ route('news.show', $item->slug) }}"><b>{{ $item->title }}</b></a>
 
                     <p class="mt-3 mb-0">{{ $item->author }}, {{ date('d.m.Y H:i', strtotime($item->date)) }}</p>
                 </div>

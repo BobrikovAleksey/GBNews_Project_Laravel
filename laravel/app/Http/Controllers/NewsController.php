@@ -53,12 +53,21 @@ class NewsController extends Controller
         } else {
             $news = News::orderByDesc('id')->paginate(10);
         }
-
         $data = $this->getDataForViews();
         $data = array_merge($data, [
             'category' => $category ?? null,
             'news' => $news,
         ]);
+        if (isset($category)) {
+            $data = array_merge($data, [
+                'breadcrumbs' => [
+                    'name' => 'home-news-category',
+                    'category' => $category,
+                ],
+            ]);
+        } else {
+            $data = array_merge($data, [ 'breadcrumbs' => [ 'name' => 'home-news' ] ]);
+        }
         return view('news.index', $data);
     }
 
@@ -75,9 +84,16 @@ class NewsController extends Controller
         ]);
 
         if (isset($data['news'])) {
+            $data = array_merge($data, [
+                'breadcrumbs' => [
+                    'name' => 'home-news-show',
+                    'news' => $data['news'],
+                ],
+            ]);
+
             return view('news.single', $data);
         }
 
-        return redirect()->route('News.Index');
+        return redirect()->route('news.index');
     }
 }

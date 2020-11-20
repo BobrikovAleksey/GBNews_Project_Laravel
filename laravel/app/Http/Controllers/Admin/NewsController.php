@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Models\{Category, News};
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\{Factory, View};
+use Illuminate\Support\Str;
 use Illuminate\Http\{RedirectResponse, Request, Response};
 
 class NewsController extends Controller
@@ -43,18 +44,26 @@ class NewsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return RedirectResponse|\Illuminate\Http\JsonResponse
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => ['bail', 'required', 'unique:news', 'max:224'],
+            'cover' => 'max:256',
+            'author' => 'max:128',
+            'source' => 'max:128',
         ]);
 
-        $data = $request->only(['author', 'source', 'title', 'cover', 'body']);
-        return response()->json($data);
+        $data = $request->only(['title', 'cover', 'author', 'source', 'date', 'body']);
+        $data['slug'] = Str::slug($data['title']);
 
-//        return redirect()->back();
+        if (!strtotime($data['date'])) {
+            $data['date'] = Carbon::now();
+        }
+
+
+
     }
 
     /**

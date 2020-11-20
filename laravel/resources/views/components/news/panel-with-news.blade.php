@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="tn-title sidebar-panel__news">
-                            <a href="{{ route('News.Show', $news->slug) }}">{{ $news->title }}</a>
+                            <a href="{{ route('news.show', $news->slug) }}">{{ $news->title }}</a>
                         </div>
                     </div>
                 @endforeach

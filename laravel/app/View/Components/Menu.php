@@ -12,7 +12,8 @@ use Illuminate\View\Component;
 
 class Menu extends Component
 {
-    protected array $menu;
+    protected array $newsMenu = [];
+    protected array $activeMenuItem = [];
 
     /**
      * Create a new component instance.
@@ -22,26 +23,20 @@ class Menu extends Component
      */
     public function __construct($categories)
     {
-        $newsMenu = [['link' => route('News.Index'), 'name' => 'All News', 'title' => 'Все новости'], []];
+        $this->newsMenu = [['link' => route('news.index'), 'title' => 'Все новости'], []];
         foreach ($categories as $category) {
-            $newsMenu[] = [
-                'link' => route('News.Category', $category->slug),
-                'name' =>  $category->name,
+            $this->newsMenu[] = [
+                'link' => route('news.category', $category->slug),
                 'title' =>  $category->title,
             ];
         }
 
-        $this->menu = [
-            ['link' => route('Home'), 'name' => 'Home', 'title' => 'Главная страница'],
-            ['link' => route('News.Index'), 'name' => 'News', 'title' => 'Новости', 'submenu' => $newsMenu],
-            ['link' => '#', 'name' => 'About', 'title' => 'О нас'],
-            ['link' => route('Contact.Index'), 'name' => 'Contact Us', 'title' => 'Связаться с нами'],
-        ];
-
         $currentUrl = request()->getUri();
-        for ($i = 0; $i < count($this->menu); $i++) {
-            $this->menu[$i]['active'] = strripos($currentUrl, $this->menu[$i]['link']) === 0;
-        }
+        $this->activeMenuItem = [
+            route('home') => strripos($currentUrl, route('home')) === 0,
+            route('news.index') => strripos($currentUrl, route('news.index')) === 0,
+            route('contact.index') => strripos($currentUrl, route('contact.index')) === 0,
+        ];
     }
 
     /**
@@ -52,7 +47,8 @@ class Menu extends Component
     public function render()
     {
         return view('components.menu', [
-            'menu' => $this->menu,
+            'newsMenu' => $this->newsMenu,
+            'activeMenuItem' => $this->activeMenuItem,
         ]);
     }
 }

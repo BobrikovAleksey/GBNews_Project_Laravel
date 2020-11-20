@@ -16,23 +16,23 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('Home');
+    return redirect()->route('home');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('Home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('contact')->name('Contact.')->group(function () {
-    Route::get('/', [ContactController::class, 'index'])->name('Index');
-    Route::post('/', [ContactController::class, 'store'])->name('Store');
+Route::prefix('contact')->name('contact.')->group(function () {
+    Route::get('/', [ContactController::class, 'index'])->name('index');
+    Route::post('/', [ContactController::class, 'store'])->name('store');
 });
 
-Route::prefix('news')->name('News.')->group(function () {
-    Route::get('/', [NewsController::class, 'index'])->name('Index');
-    Route::get('/show/{slug}', [NewsController::class, 'show'])->name('Show');
-    Route::get('/{slug}', [NewsController::class, 'index'])->name('Category');
+Route::prefix('news')->name('news.')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('index');
+    Route::get('/show/{slug}', [NewsController::class, 'show'])->name('show');
+    Route::get('/{slug}', [NewsController::class, 'index'])->name('category');
 });
 
-Route::prefix('admin')->name('Admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('/news', AdminNewsController::class);
 });
 

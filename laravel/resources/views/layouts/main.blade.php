@@ -34,7 +34,9 @@
 
 <x-main-menu :categories="$categories"></x-main-menu>
 
-{{--<x-main-breadcrumbs></x-main-breadcrumbs>--}}
+@isset ($breadcrumbs)
+    <x-main-breadcrumbs :breadcrumbs="$breadcrumbs"></x-main-breadcrumbs>
+@endisset
 
 <div class="container">
     @yield('content')

@@ -5,32 +5,32 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="contact-form w-100">
-                <form action="{{ route('Admin.news.store')  }}" method="POST">
+                <form action="{{ route('admin.news.store')  }}" method="POST">
                     @csrf
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="col-form-label" for="author">Автор</label>
-                            <input class="form-control" type="text" id="author" name="author"
+                            <input class="form-control" type="text" id="author" name="author" maxlength="128"
                                    placeholder="Введите автора" value="{{ old('author') }}"/>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label class="col-form-label" for="source">Источник</label>
-                            <input class="form-control" type="text" id="source" name="source"
+                            <input class="form-control" type="text" id="source" name="source" maxlength="128"
                                    placeholder="Введите источник" value="{{ old('source') }}"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-form-label" for="title">Заголовок</label>
-                        <input class="form-control" type="text" id="title" name="title" placeholder="Введите заголовок"
-                               value="{{ old('title') }}" required/>
+                        <input class="form-control" type="text" id="title" name="title" maxlength="224"
+                               placeholder="Введите заголовок" value="{{ old('title') }}" required/>
                     </div>
 
                     <div class="form-group">
                         <label class="col-form-label" for="cover">Ссылка на обложку</label>
-                        <input class="form-control" type="text" id="cover" name="cover"
+                        <input class="form-control" type="text" id="cover" name="cover" maxlength="256"
                                placeholder="Вставьте ссылку на обложку" value="{{ old('cover') }}"/>
                     </div>
 

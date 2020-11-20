@@ -1,5 +1,5 @@
 <div class="contact-form">
-    <form action="{{ route('Contact.Store')  }}" method="POST">
+    <form action="{{ route('contact.store')  }}" method="POST">
         @csrf
 
         <div class="form-row">

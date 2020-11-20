@@ -2,6 +2,10 @@
 
 namespace App\View\Components;
 
+use Closure;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -20,7 +24,7 @@ class Footer extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return View|string
+     * @return Closure|Application|Htmlable|Factory|View|string
      */
     public function render()
     {

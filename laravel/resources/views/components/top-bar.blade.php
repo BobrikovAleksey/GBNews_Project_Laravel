@@ -11,9 +11,13 @@
 
             <div class="col-md-6">
                 <div class="tb-menu">
-                    @foreach ($menu as $item)
-                        <a href="{{ $item['link'] }}">{{ $item['title'] }}</a>
-                    @endforeach
+                    <a href="#">О нас</a>
+
+                    <a href="#">Конфиденциальность</a>
+
+                    <a href="#">Термины</a>
+
+                    <a href="#">Связаться с нами</a>
                 </div>
             </div>
         </div>

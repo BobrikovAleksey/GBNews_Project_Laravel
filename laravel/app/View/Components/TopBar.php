@@ -2,7 +2,10 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
+use Closure;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\{Factory, View};
 use Illuminate\View\Component;
 
 class TopBar extends Component
@@ -20,25 +23,18 @@ class TopBar extends Component
     {
         $this->email = 'bobrikov.aleksey.1987@ya.ru';
         $this->phone = '+7 (921) 787-25-16';
-        $this->menu = [
-            [ 'link' => '/', 'name' => 'About', 'title' => 'О нас' ],
-            [ 'link' => '/', 'name' => 'Privacy', 'title' => 'Конфиденциальность' ],
-            [ 'link' => '/', 'name' => 'Terms', 'title' => 'Термины' ],
-            [ 'link' => '/', 'name' => 'Contact', 'title' => 'Связаться с нами' ],
-        ];
     }
 
     /**
      * Get the view / contents that represent the component.
      *
-     * @return View|string
+     * @return Closure|Application|Htmlable|Factory|View|string
      */
     public function render()
     {
         return view('components.top-bar', [
             'email' => $this->email,
             'phone' => $this->phone,
-            'menu' => $this->menu,
         ]);
     }
 }

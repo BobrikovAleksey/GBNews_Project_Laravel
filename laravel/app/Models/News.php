@@ -39,6 +39,8 @@ class News extends Model
     /** @var string */
     protected $table = 'news';
 
+    protected $fillable = ['title', 'slug', 'cover', 'author', 'source', 'date', 'body'];
+
     /**
      * Категории новости
      *

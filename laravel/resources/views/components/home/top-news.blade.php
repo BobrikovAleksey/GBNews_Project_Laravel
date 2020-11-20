@@ -9,7 +9,7 @@
                                 <img src="{{ asset('img/news-450x350-' . random_int(1, 2) .'.jpg') }}" alt="cover"/>
 
                                 <div class="tn-title">
-                                    <a class="medium-slide" href="{{ route('News.Show', $news[$i-1]->slug) }}">
+                                    <a class="medium-slide" href="{{ route('news.show', $news[$i-1]->slug) }}">
                                         {{ $news[$i-1]->title }}
                                     </a>
                                 </div>
@@ -27,7 +27,7 @@
                                 <img src="{{ asset($news[$i+2]->cover) }}" alt="cover"/>
 
                                 <div class="tn-title">
-                                    <a class="small-slide" href="{{ route('News.Show', $news[$i+2]->slug) }}">
+                                    <a class="small-slide" href="{{ route('news.show', $news[$i+2]->slug) }}">
                                         {{ $news[$i+2]->title }}
                                     </a>
                                 </div>

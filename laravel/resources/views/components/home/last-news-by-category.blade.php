@@ -5,7 +5,7 @@
                 <img src="{{ asset($item->cover) }}" alt="cover"/>
 
                 <div class="cn-title">
-                    <a class="small-slide" href="{{ route('News.Show', $item->slug) }}">{{ $item->title }}</a>
+                    <a class="small-slide" href="{{ route('news.show', $item->slug) }}">{{ $item->title }}</a>
                 </div>
             </div>
         </div>
