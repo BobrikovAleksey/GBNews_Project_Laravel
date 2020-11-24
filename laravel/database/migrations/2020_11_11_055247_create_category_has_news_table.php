@@ -20,9 +20,9 @@ class CreateCategoryHasNewsTable extends Migration
             $table->primary(['category_id', 'news_id'], 'pk_category_has_news');
             $table->index(['news_id', 'category_id'], 'news_category_ndx');
             $table->foreign('category_id', 'fk_categories_has_news__category_id')
-                ->references('id')->on('categories');
+                ->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('news_id', 'fk_categories_has_news__news_id')
-                ->references('id')->on('news');
+                ->references('id')->on('news')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

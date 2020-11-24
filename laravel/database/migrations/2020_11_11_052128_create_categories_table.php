@@ -18,21 +18,58 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('title', 224)->unique()->nullable(false)->comment('Заголовок');
             $table->string('slug', 256)->nullable(false)->comment('Транслитерация заголовка');
-            $table->string('title_eng', 224)->unique()->nullable(false)->comment('Заголовок');
-            $table->timestamps();
+            $table->string('description', 512)->nullable()->comment('Описание');
 
-            $table->index('slug', 'categories_slug_ndx');
+            $table->index(['slug', 'id'], 'categories_slug_id_ndx');
         });
 
         DB::table('categories')->insertOrIgnore([
-            [ 'title' => 'Россия', 'slug' => Str::slug('Россия'), 'title_eng' => 'Russia' ],
-            [ 'title' => 'В мире', 'slug' => Str::slug('В мире'), 'title_eng' => 'World' ],
-            [ 'title' => 'Местные новости', 'slug' => Str::slug('Местные новости'), 'title_eng' => 'Local' ],
-            [ 'title' => 'Бизнес', 'slug' => Str::slug('Бизнес'), 'title_eng' => 'Business' ],
-            [ 'title' => 'Наука и техника', 'slug' => Str::slug('Наука и техника'), 'title_eng' => 'Technology' ],
-            [ 'title' => 'Развлечения', 'slug' => Str::slug('Развлечения'), 'title_eng' => 'Entertainment' ],
-            [ 'title' => 'Спорт', 'slug' => Str::slug('Спорт'), 'title_eng' => 'Sport' ],
-            [ 'title' => 'Здоровье', 'slug' => Str::slug('Здоровье'), 'title_eng' => 'Health' ],
+            [
+                'id' => 1,
+                'title' => 'Россия',
+                'slug' => Str::slug('Россия'),
+                'description' => '',
+            ], [
+                'id' => 2,
+                'title' => 'В мире',
+                'slug' => Str::slug('В мире'),
+                'description' => '',
+            ], [
+                'id' => 3,
+                'title' => 'Местные новости',
+                'slug' => Str::slug('Местные новости'),
+                'description' => '',
+            ], [
+                'id' => 4,
+                'title' => 'Бизнес',
+                'slug' => Str::slug('Бизнес'),
+                'description' => '',
+            ], [
+                'id' => 5,
+                'title' => 'Наука и техника',
+                'slug' => Str::slug('Наука и техника'),
+                'description' => '',
+            ], [
+                'id' => 6,
+                'title' => 'Развлечения',
+                'slug' => Str::slug('Развлечения'),
+                'description' => '',
+            ], [
+                'id' => 7,
+                'title' => 'Спорт',
+                'slug' => Str::slug('Спорт'),
+                'description' => '',
+            ], [
+                'id' => 8,
+                'title' => 'Здоровье',
+                'slug' => Str::slug('Здоровье'),
+                'description' => '',
+            ], [
+                'id' => 101,
+                'title' => 'Другие категории',
+                'slug' => Str::slug('Другие категории'),
+                'description' => '',
+            ],
         ]);
     }
 

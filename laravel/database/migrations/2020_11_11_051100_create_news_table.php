@@ -18,16 +18,17 @@ class CreateNewsTable extends Migration
             $table->string('title', 224)->nullable(false)->comment('Заголовок');
             $table->string('slug', 256)->nullable(false)->comment('Транслитерация заголовка');
             $table->string('cover', 256)->nullable()->comment('Ссылка на обложку');
-            $table->string('author', 128)->nullable()->comment('Автор');
-            $table->string('source', 128)->nullable()->comment('Источник');
-            $table->dateTime('date')->nullable(false)->comment('Дата и время публикации');
-            $table->integer('views')->default(1)->comment('Количество просмотров');
-            $table->text('body')->nullable()->comment('Содержание');
+            $table->string('author', 128)->default('Неизвестен')->comment('Автор');
+            $table->string('source', 128)->default('Отсутствует')->comment('Источник');
+            $table->text('body')->nullable(false)->comment('Содержание');
+            $table->timestamp('date')->nullable()->comment('Дата и время публикации');
+            $table->unsignedBigInteger('views')->default(1)->comment('Количество просмотров');
+            $table->unsignedBigInteger('rating')->default(0)->comment('Рейтинг новости');
             $table->timestamps();
 
-            $table->index('slug', 'news_slug_ndx');
-            $table->index('author', 'news_author_ndx');
-            $table->index('source', 'news_source_ndx');
+            $table->index(['slug', 'date'], 'news_slug_date_ndx');
+            $table->index(['author', 'date'], 'news_author_date_ndx');
+            $table->index(['source', 'date'], 'news_source_date_ndx');
             $table->index(['date', 'id'], 'news_date_id_ndx');
         });
     }
