@@ -1,7 +1,9 @@
 <?php
+/** @noinspection PhpUndefinedClassInspection */
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use Closure;
 use Eloquent;
 use Illuminate\Contracts\Foundation\Application;
@@ -18,7 +20,7 @@ class Menu extends Component
     /**
      * Create a new component instance.
      *
-     * @param Eloquent[]|Collection $categories
+     * @param Category[]|Eloquent[]|Collection $categories
      * @return void
      */
     public function __construct($categories)
@@ -35,7 +37,11 @@ class Menu extends Component
         $this->activeMenuItem = [
             route('home') => strripos($currentUrl, route('home')) === 0,
             route('news.index') => strripos($currentUrl, route('news.index')) === 0,
-            route('contact.index') => strripos($currentUrl, route('contact.index')) === 0,
+            route('feedback.index') => strripos($currentUrl, route('feedback.index')) === 0,
+            route('admin.category.index') => strripos($currentUrl, route('admin.category.index')) === 0,
+            route('admin.feedback.index') => strripos($currentUrl, route('admin.feedback.index')) === 0,
+            route('admin.news.index') => strripos($currentUrl, route('admin.news.index')) === 0,
+            route('admin.source.index') => strripos($currentUrl, route('admin.source.index')) === 0,
         ];
     }
 

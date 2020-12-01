@@ -32,24 +32,30 @@
 
                     <a href="#" class="nav-item nav-link">О нас</a>
 
-                    <a href="{{ route('contact.index') }}" class="nav-item nav-link
-                       @if ($activeMenuItem[route('contact.index')]) active @endif">Связаться с нами</a>
+                    <a href="{{ route('feedback.index') }}" class="nav-item nav-link
+                       @if ($activeMenuItem[route('feedback.index')]) active @endif">Связаться с нами</a>
 
-{{--                    <div class="nav-item dropdown">--}}
-{{--                        <a href="{{ route('admin.news.index') }}" class="nav-item nav-link--}}
-{{--                           @if ($activeMenuItem[route('admin.news.index')]) 'active' @endif">Панель управления</a>--}}
+                    <div class="nav-item dropdown">
+                        <a href="" data-toggle="dropdown" class="nav-link dropdown-toggle
+                            @if ($activeMenuItem[route('admin.category.index')]
+                              || $activeMenuItem[route('admin.news.index')]
+                              || $activeMenuItem[route('admin.source.index')]
+                              || $activeMenuItem[route('admin.feedback.index')])
+                                active
+                            @endif">Панель управления</a>
 
-{{--                        <div class="dropdown-menu">--}}
-{{--                            <a href="#" class="dropdown-item">Новости</a>--}}
-{{--                            <hr/>--}}
+                        <div class="dropdown-menu">
+                            <a href="{{ route('admin.news.index') }}" class="dropdown-item">Новости</a>
+                            <hr/>
 
-{{--                            <a href="{{ route('admin.news.index') }}" class="dropdown-item">Пользователи</a>--}}
+                            <a href="{{ route('admin.category.index') }}" class="dropdown-item">Категории новостей</a>
 
-{{--                            <a href="#" class="dropdown-item">Категории новостей</a>--}}
+                            <a href="{{ route('admin.source.index') }}" class="dropdown-item">Источники новостей</a>
+                            <hr/>
 
-{{--                            <a href="#" class="dropdown-item">Источники новостей</a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                            <a href="{{ route('admin.feedback.index') }}" class="dropdown-item">Обратная связь</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="social ml-auto">

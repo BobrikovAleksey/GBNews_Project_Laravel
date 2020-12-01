@@ -39,8 +39,7 @@ class NewsList extends Component
      */
     public function render()
     {
-        return view('components.news.news-list')
-            ->with('category', $this->category)
+        return view('components.news.news-list')->with('category', $this->category)
             ->with('news', $this->news);
     }
 }

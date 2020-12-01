@@ -18,15 +18,20 @@ namespace App\Models{
  * @property string $title Заголовок
  * @property string $slug Транслитерация заголовка
  * @property string|null $description Описание
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\News[] $news
  * @property-read int|null $news_count
  * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Category onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Category withoutTrashed()
  */
 	class Category extends \Eloquent {}
 }
@@ -93,6 +98,32 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|News whereViews($value)
  */
 	class News extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Source
+ *
+ * @property int $id
+ * @property int $category_id
+ * @property string $name
+ * @property string $link
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Category[] $categories
+ * @property-read int|null $categories_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Source newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Source newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Source onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Source query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Source whereCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Source whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Source whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Source whereLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Source whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|Source withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Source withoutTrashed()
+ */
+	class Source extends \Eloquent {}
 }
 
 namespace App\Models{

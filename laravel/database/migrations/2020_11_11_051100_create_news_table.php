@@ -18,13 +18,15 @@ class CreateNewsTable extends Migration
             $table->string('title', 224)->nullable(false)->comment('Заголовок');
             $table->string('slug', 256)->nullable(false)->comment('Транслитерация заголовка');
             $table->string('cover', 256)->nullable()->comment('Ссылка на обложку');
-            $table->string('author', 128)->default('Неизвестен')->comment('Автор');
-            $table->string('source', 128)->default('Отсутствует')->comment('Источник');
+            $table->string('author', 128)->nullable()->default('Неизвестен')->comment('Автор');
+            $table->string('source', 128)->nullable()->default('Отсутствует')->comment('Источник');
             $table->text('body')->nullable(false)->comment('Содержание');
             $table->timestamp('date')->nullable()->comment('Дата и время публикации');
             $table->unsignedBigInteger('views')->default(1)->comment('Количество просмотров');
             $table->unsignedBigInteger('rating')->default(0)->comment('Рейтинг новости');
+
             $table->timestamps();
+            $table->softDeletes();
 
             $table->index(['slug', 'date'], 'news_slug_date_ndx');
             $table->index(['author', 'date'], 'news_author_date_ndx');

@@ -12,15 +12,15 @@
                         <p><i class="fa fa-phone"></i>+123-456-7890</p>
 
                         <div class="social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
 
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 
-                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
 
-                            <a href=""><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                         </p>
 
                         <form>
-                            <label for="email" style="display: none"></label>
-                            <input class="form-control" type="email" id="email" placeholder="Your email here">
+                            <label for="subscribe-email" style="display: none"></label>
+                            <input class="form-control" type="email" id="subscribe-email" placeholder="Your email here">
 
                             <button class="btn">Submit</button>
                         </form>

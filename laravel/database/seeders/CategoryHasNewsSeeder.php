@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUndefinedClassInspection */
 
 namespace Database\Seeders;
 

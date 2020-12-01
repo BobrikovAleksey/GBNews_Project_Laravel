@@ -26,7 +26,7 @@ class Breadcrumbs extends Component
         ];
 
         switch ($breadcrumbs['name']) {
-            case 'home-contact':
+            case 'home-feedback':
                 $this->breadcrumbs = [
                     $links['home'],
                     [ 'link' => '#', 'title' => 'Форма связи' ],

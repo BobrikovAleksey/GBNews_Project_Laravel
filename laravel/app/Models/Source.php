@@ -8,9 +8,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
+class Source extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -19,17 +19,17 @@ class Category extends Model
      * @var array|string[] $fillable
      * @var bool $timestamps
      */
-    protected $table = 'categories';
-    protected $fillable = ['title', 'slug', 'description'];
+    protected $table = 'sources';
+    protected $fillable = ['category_id', 'name', 'link'];
     public $timestamps = false;
 
     /**
-     * Новости в категории
+     * Категории новости
      *
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function news()
+    public function categories()
     {
-        return $this->belongsToMany(News::class, 'category_has_news', 'category_id', 'news_id');
+        return $this->hasMany(Category::class, 'category_id');
     }
 }

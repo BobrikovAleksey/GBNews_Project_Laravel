@@ -8,51 +8,51 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>{{ $categories[0]->title }}</h2>
-
-                <x-home-last-news-by-category :category-id="$categories[0]->id"></x-home-last-news-by-category>
-            </div>
-
-            <div class="col-md-6">
                 <h2>{{ $categories[1]->title }}</h2>
 
                 <x-home-last-news-by-category :category-id="$categories[1]->id"></x-home-last-news-by-category>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="cat-news">
-    <div class="container">
-        <div class="row">
             <div class="col-md-6">
                 <h2>{{ $categories[2]->title }}</h2>
 
                 <x-home-last-news-by-category :category-id="$categories[2]->id"></x-home-last-news-by-category>
             </div>
+        </div>
+    </div>
+</div>
 
+<div class="cat-news">
+    <div class="container">
+        <div class="row">
             <div class="col-md-6">
                 <h2>{{ $categories[3]->title }}</h2>
 
                 <x-home-last-news-by-category :category-id="$categories[3]->id"></x-home-last-news-by-category>
             </div>
-        </div>
-    </div>
-</div>
 
-<div class="cat-news">
-    <div class="container">
-        <div class="row">
             <div class="col-md-6">
                 <h2>{{ $categories[4]->title }}</h2>
 
                 <x-home-last-news-by-category :category-id="$categories[4]->id"></x-home-last-news-by-category>
             </div>
+        </div>
+    </div>
+</div>
 
+<div class="cat-news">
+    <div class="container">
+        <div class="row">
             <div class="col-md-6">
                 <h2>{{ $categories[5]->title }}</h2>
 
                 <x-home-last-news-by-category :category-id="$categories[5]->id"></x-home-last-news-by-category>
+            </div>
+
+            <div class="col-md-6">
+                <h2>{{ $categories[6]->title }}</h2>
+
+                <x-home-last-news-by-category :category-id="$categories[6]->id"></x-home-last-news-by-category>
             </div>
         </div>
     </div>
@@ -62,15 +62,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>{{ $categories[6]->title }}</h2>
-
-                <x-home-last-news-by-category :category-id="$categories[6]->id"></x-home-last-news-by-category>
-            </div>
-
-            <div class="col-md-6">
                 <h2>{{ $categories[7]->title }}</h2>
 
                 <x-home-last-news-by-category :category-id="$categories[7]->id"></x-home-last-news-by-category>
+            </div>
+
+            <div class="col-md-6">
+                <h2>{{ $categories[8]->title }}</h2>
+
+                <x-home-last-news-by-category :category-id="$categories[8]->id"></x-home-last-news-by-category>
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpUndefinedClassInspection */
 
 namespace App\Http\Controllers;
 
@@ -8,6 +9,10 @@ use Illuminate\Contracts\View\{Factory, View};
 
 class HomeController extends Controller
 {
+    protected int $newsOnPage;
+    protected int $newsOnRelated;
+    protected int $newsOnSidebarPanel;
+
     /**
      * Create a new controller instance.
      *
@@ -16,8 +21,17 @@ class HomeController extends Controller
     public function __construct()
     {
 //        $this->middleware('auth');
+
+        $this->newsOnPage = config('app.news_on.page');
+        $this->newsOnRelated = config('app.news_on.related_panel');
+        $this->newsOnSidebarPanel = config('app.news_on.sidebar_panel_with_tabs');
     }
 
+    /**
+     * Возвращает новости для панели с избранными новостями
+     *
+     * @return array[]
+     */
     protected function getFeaturedTabs(): array
     {
         return [
@@ -37,20 +51,25 @@ class HomeController extends Controller
         ];
     }
 
+    /**
+     * Возвращает новости для панели с наиболее ... новостями
+     *
+     * @return array[]
+     */
     protected function getMostTabs(): array
     {
         return [
             [
                 'link' => 't-viewed',
-                'title' => 'Самые просматриваемые',
+                'title' => 'Наиболее просматриваемые',
                 'news' => News::query()->orderByDesc('id')->limit(3)->get(),
             ],[
                 'link' => 't-read',
-                'title' => 'Самые читаемые',
+                'title' => 'Наиболее читаемые',
                 'news' => News::query()->orderByDesc('id')->limit(3)->get(),
             ],[
                 'link' => 't-recent',
-                'title' => 'Самые свежие',
+                'title' => 'Наиболее свежие',
                 'news' => News::query()->orderByDesc('id')->limit(3)->get(),
             ]
         ];

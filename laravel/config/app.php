@@ -1,9 +1,44 @@
 <?php
 
 return [
+    /**
+     * Количество новостей в объектах
+     */
 
-    /*
-    |--------------------------------------------------------------------------
+    'news_on' => [
+        'category_panel' => 3,
+        'page' => 10,
+        'related_panel' => 5,
+        'sidebar_panel_with_tabs' => 5,
+        'panel_with_tabs' => 3,
+        'top_panel' => 7,
+    ],
+
+    /**
+     * Количество категорий в объектах
+     */
+
+    'categories_on' => [
+        'page' => 10,
+    ],
+
+    /**
+     * Количество источников в объектах
+     */
+
+    'sources_on' => [
+        'page' => 10,
+    ],
+
+    /**
+     * Количество писем в объекте
+     */
+
+    'feedback_on' => [
+        'page' => 10,
+    ],
+
+    /**
     | Application Name
     |--------------------------------------------------------------------------
     |
@@ -15,8 +50,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -28,8 +62,7 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -41,8 +74,7 @@ return [
 
     'debug' => (bool) env('APP_DEBUG', false),
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Application URL
     |--------------------------------------------------------------------------
     |
@@ -56,8 +88,7 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Application Timezone
     |--------------------------------------------------------------------------
     |
@@ -69,8 +100,7 @@ return [
 
     'timezone' => 'UTC',
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Application Locale Configuration
     |--------------------------------------------------------------------------
     |
@@ -82,8 +112,7 @@ return [
 
     'locale' => 'en',
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Application Fallback Locale
     |--------------------------------------------------------------------------
     |
@@ -95,8 +124,7 @@ return [
 
     'fallback_locale' => 'en',
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Faker Locale
     |--------------------------------------------------------------------------
     |
@@ -108,8 +136,7 @@ return [
 
     'faker_locale' => 'en_US',
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Encryption Key
     |--------------------------------------------------------------------------
     |
@@ -123,8 +150,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
@@ -135,8 +161,7 @@ return [
     */
 
     'providers' => [
-
-        /*
+        /**
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
@@ -146,6 +171,7 @@ return [
         Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Cookie\CookieServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,
         Illuminate\Filesystem\FilesystemServiceProvider::class,
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
@@ -162,11 +188,11 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
+        /**
          * Package Service Providers...
          */
 
-        /*
+        /**
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -174,11 +200,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
     ],
 
-    /*
-    |--------------------------------------------------------------------------
+    /**
     | Class Aliases
     |--------------------------------------------------------------------------
     |
@@ -189,7 +213,6 @@ return [
     */
 
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -202,6 +225,7 @@ return [
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
         'DB' => Illuminate\Support\Facades\DB::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
@@ -226,7 +250,5 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
-
 ];

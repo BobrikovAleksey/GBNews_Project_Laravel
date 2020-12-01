@@ -11,7 +11,7 @@ use App\View\Components\{BottomBar,
                          Menu,
                          SidebarAdvertising,
                          TopBar};
-use App\View\Components\Contact\{Form, Info};
+use App\View\Components\Feedback\{Form, Info};
 use Illuminate\Pagination\Paginator;
 use App\View\Components\Home\{LastNewsByCategory, News, PanelWithNews, TopNews};
 use App\View\Components\News\{CategoryLinks,
@@ -56,9 +56,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::component(SidebarAdvertising::class, 'main-sidebar-advertising');
         Blade::component(TopBar::class, 'main-top-bar');
 
-        // contact
-        Blade::component(Form::class, 'contact-form');
-        Blade::component(Info::class, 'contact-info');
+        // feedback
+        Blade::component(Form::class, 'feedback-form');
+        Blade::component(Info::class, 'feedback-info');
 
         // home
         Blade::component(LastNewsByCategory::class, 'home-last-news-by-category');

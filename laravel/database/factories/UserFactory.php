@@ -1,4 +1,8 @@
-<?php /** @noinspection PhpMissingFieldTypeInspection */
+<?php
+/**
+ * @noinspection PhpMissingFieldTypeInspection
+ * @noinspection PhpUndefinedClassInspection
+ */
 
 namespace Database\Factories;
 

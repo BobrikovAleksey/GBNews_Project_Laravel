@@ -15,6 +15,9 @@
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.ico') }}" rel="icon">
 
+    <!-- Scripts -->
+    @stack('scripts')
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
 
@@ -23,10 +26,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('lib/slick/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/slick/slick-theme.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}?t={{ microtime(true) }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}?t={{ microtime(true) }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/app.css') }}?t={{ microtime(true) }}" rel="stylesheet">--}}
 </head>
-<body>
+<body class="vh-100 d-flex flex-column">
 
 <x-main-top-bar></x-main-top-bar>
 
@@ -38,7 +42,7 @@
     <x-main-breadcrumbs :breadcrumbs="$breadcrumbs"></x-main-breadcrumbs>
 @endisset
 
-<div class="container">
+<div class="container flex-grow-1 pt-4 pb-4">
     @yield('content')
 </div>
 

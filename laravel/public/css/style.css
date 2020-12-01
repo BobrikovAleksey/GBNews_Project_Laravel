@@ -1087,11 +1087,6 @@ h6 {
 /**********************************/
 /********** Contact CSS ***********/
 /**********************************/
-.contact {
-    position: relative;
-    padding: 25px 0 15px 0;
-}
-
 .contact .contact-form,
 .contact .contact-info {
     margin-bottom: 45px;

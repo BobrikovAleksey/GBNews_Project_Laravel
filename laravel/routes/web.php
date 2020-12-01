@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{ContactController, HomeController, NewsController};
-use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\{FeedbackController, HomeController, NewsController};
+use App\Http\Controllers\Admin\{CategoryController as AdminCategoryController,
+    FeedbackController as AdminFeedbackController,
+    NewsController as AdminNewsController,
+    SourceController as AdminSourceController};
 
-/*
-|--------------------------------------------------------------------------
+/**
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -21,9 +23,9 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('contact')->name('contact.')->group(function () {
-    Route::get('/', [ContactController::class, 'index'])->name('index');
-    Route::post('/', [ContactController::class, 'store'])->name('store');
+Route::prefix('feedback')->name('feedback.')->group(function () {
+    Route::get('/', [FeedbackController::class, 'index'])->name('index');
+    Route::post('/', [FeedbackController::class, 'store'])->name('store');
 });
 
 Route::prefix('news')->name('news.')->group(function () {
@@ -33,7 +35,10 @@ Route::prefix('news')->name('news.')->group(function () {
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('/category', AdminCategoryController::class);
+    Route::resource('/feedback', AdminFeedbackController::class);
     Route::resource('/news', AdminNewsController::class);
+    Route::resource('/source', AdminSourceController::class);
 });
 
 Auth::routes();
